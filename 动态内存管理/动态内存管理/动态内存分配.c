@@ -182,3 +182,349 @@
 //	p = NULL;
 //	return 0;
 //}
+
+
+//int main()
+//{
+//	/*int* p = (int*)malloc(40);*/
+//	//realloc也可以直接开辟空间,等价于malloc前提是realloc传过去的地址是NULL
+//	int* p2 = (int*)realloc(NULL, 40);
+//	if (p2 != NULL)
+//	{
+//		return 0;
+//	}
+//}
+
+//4.使用free释放动态开辟内存的一部分
+//int main()
+//{
+//	int* p = (int*)malloc(40);
+//	if (p == NULL)
+//	{
+//		return 0;
+//	}
+//	int i = 0;
+//	for (i = 0; i < 10; i++)
+//	{
+//		*p++ = i;//循环之后p已经不是首元素的地址了
+//		/**(p + i) = i;*/
+//	}
+//	free(p);//free只能从开辟空间首元素开始释放
+//	p = NULL;
+//	return 0;
+
+
+//5.对同一块动态内存多次释放
+//int main()
+//{
+//	int* p = (int*)malloc(40);
+//	if (p == NULL)
+//	{
+//		return 0;
+//	}
+//	int i = 0;
+//	for (i = 0; i < 10; i++)
+//	{
+//		*(p + i) = i;
+//		printf("%d\n", *(p + i));
+//	}
+//	free(p);
+//	//p = NULL;
+//	free(p);
+//	return 0;
+//}
+
+//6.动态开辟内存忘记释放（内存泄漏）
+//#include<Windows.h>
+//int main()
+//{
+//	while (1)
+//	{
+//		malloc(1);
+//	}
+//	return 0;
+//}
+
+//void test()
+//{
+//	int* p = (int*)malloc(100);
+//	if (NULL != p)
+//	{
+//		*p = 20;
+//	}//开辟的空间p没有及时释放，执行完函数后p就会被销毁，就无法找到p的地址并释放空间
+//	//导致内存泄露
+//}
+//
+//int main()
+//{
+//	test();
+//	while (1);
+//}
+
+//经典笔试题
+
+//void GetMemory(char* p)
+//{
+//	p = (char*)malloc(100);//str以直传的方式传给p,p是str的一份临时拷贝，是函数GetMemory函数的形参，只在函数内部有效
+//	//等GetMemory函数返回之后，动态开辟内存尚未释放，并且无法找到，所以会造成内存泄漏
+//}
+//
+//void Test(void)
+//{
+//	char* str = NULL;
+//	GetMemory(str);
+//	strcpy(str, "hello world");
+//	printf(str);
+//}
+//
+//
+//int main()
+//{
+//	Test();
+//	return 0;
+//}
+//函数存在的问题
+//1.运行代码程序会出现崩溃现象
+//2.程序出现内存泄漏现象
+
+
+//改正程序方法1
+//void GetMemory(char** p)
+//{
+//	char* tmp = NULL;
+//	tmp = (char*)malloc(100);
+//	if (tmp != NULL)
+//	{
+//		*p = tmp;
+//	}
+//}
+//
+//void Test(void)
+//{
+//	char* str = NULL;
+//	GetMemory(&str);
+//	strcpy(str, "hello world");
+//	printf(str);
+// free(str);
+// str = NULL;
+//}
+//
+//
+//int main()
+//{
+//	Test();
+//	return 0;
+//}
+
+//改正程序方法2
+//char* GetMemory(char* p)
+//{
+//	p = (char*)malloc(100);
+//	if (p != NULL)
+//	{
+//		return p;
+//	}
+//}
+//
+//void Test(void)
+//{
+//	char* str = NULL;
+//	str = GetMemory(str);
+//	strcpy(str, "hello world");
+//	printf(str);
+//}
+//
+//
+//int main()
+//{
+//	Test();
+//	return 0;
+//}
+
+
+//返回栈空间地址的问题
+//char* GetMemory(void)
+//{
+//	char p[] = "hello world";//只能在函数内部使用，出了该函数就会被销毁
+//	return p;
+//}
+//
+//void Test(void)
+//{
+//	char* str = NULL;
+//	str = GetMemory();
+//	printf(str);
+//}
+//
+//int main()
+//{
+//	Test();
+//	return 0;
+//}
+
+//int* test()
+//{
+//	int a = 10;
+//	return &a;
+//}
+//int main()
+//{
+//	int* p = test();
+//	*p = 20;//返回栈空间地址的问题
+//	return 0;
+//}
+
+//int* test()
+//{
+//	static int a = 10;//通过使用static延长a的生命周期
+//	return &a;
+//}
+//int main()
+//{
+//	int* p = test();
+//	*p = 20;//返回栈空间地址的问题
+//	printf("%d\n", *p);
+//	return 0;
+//}
+//
+////这样写是没有问题的因为malloc创建空间是创建在堆区的
+////只要不free就会一直存在
+//int* test()
+//{
+//	int* str = (int*)malloc(100);
+//	return str;
+//}
+//
+//int main()
+//{
+//	int* p = test();
+//	free(p);
+//	p = NULL;
+//	return 0;
+//}
+
+//没有释放内存，内存泄漏
+//void GetMemory(char** p, int num)
+//{
+//	*p = (char*)malloc(num);
+//}
+//
+//void Test(void)
+//{
+//	char* str = NULL;
+//	GetMemory(&str, 100);
+//	strcpy(str, "hello");
+//	printf(str);
+//}
+//
+//int main()
+//{
+//	Test();
+//	return 0;
+//}
+
+
+//void Test(void)
+//{
+//	char* str = (char*)malloc(100);
+//	strcpy(str, "hello");
+//	free(str);//free释放str指向的空间后，并不会把str置为空指针，str变成野指针
+//	/*str = NULL;*/  //正确改正方法
+//	if (str != NULL)
+//	{
+//		strcpy(str, "world");//ferr提前释放内存导致非法访问
+//		printf(str);
+//	}
+//}
+//
+//int main()
+//{
+//	Test();
+//	return 0;
+//}
+
+//柔型数组
+
+//struct S
+//{
+//	int n;
+//	int arr[];//未知大小的数组
+//};
+
+//struct S
+//{
+//	int n;
+//	int arr[0];//未知大小的数组-柔型数组成员-数组大小可变
+//};
+
+//int main()
+//{
+//	//struct S s;
+//	//printf("%d\n", sizeof(s));//计算数组大小时包含柔性数组，不计算柔型数组大小
+//	struct S* ps = (struct S*)malloc(sizeof(struct S)+5*sizeof(int));
+//	ps->n = 100;
+//	int i = 0;
+//	for (i = 0; i < 5; i++)
+//	{
+//		ps->arr[i] = i;
+//	}
+//	struct S* ptr = realloc(ps, 44);
+//	if (ptr != NULL)
+//	{
+//		ps = ptr;
+//	}
+//	for (i = 5; i < 10; i++)
+//	{
+//		ps->arr[i] = i;
+//	}
+//	for (i = 0; i < 10; i++)
+//	{
+//		printf("%d\n", ps->arr[i]);
+//	}
+//	free(ps);
+//	ps = NULL;
+//
+//	return 0;
+//}
+
+
+struct S
+{
+	int n;
+	int* arr;
+};
+
+int main()
+{
+	struct S* ps = (struct S*)malloc(sizeof(struct S));
+	ps->arr = malloc(5 * sizeof(int));
+	int i = 0;
+	for (i = 0; i < 5; i++)
+	{
+		ps->arr[i] = i;
+	}
+	for (i = 0; i < 5; i++)
+	{
+		printf("%d\n", ps->arr[i]);
+	}
+	//调整大小
+	int* ptr = realloc(ps->arr, 10 * sizeof(int));
+	if (ptr != NULL)
+	{
+		ps->arr = ptr;
+	}
+	for (i = 5; i < 10; i++)
+	{
+		ps->arr[i] = i;
+	}
+	for (i = 0; i < 10; i++)
+	{
+		printf("%d\n", ps->arr[i]);
+	}
+	//释放内存
+	free(ps->arr);//注意要先释放ps-arr否则如果先释放ps的话就找不到ps->arr的地址了
+	ps->arr = NULL;
+	free(ps);
+	ps = NULL;
+}//对比柔性数组减少了内存开辟的次数，减少了释放的次数，并避免释放先后导致的错误
+//使用柔型数组减少了内存碎片，提高了效率
