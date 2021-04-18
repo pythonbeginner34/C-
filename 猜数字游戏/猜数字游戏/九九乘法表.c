@@ -1,5 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
-#include<stdio.h>
+//#include<stdio.h>
 //#include<stdlib.h>
 //#include<time.h>
 //
@@ -128,28 +128,66 @@
 //	printf("count = %d", count);
 //	return 0;
 //}
-#include<math.h>
+//#include<math.h>
+//int main()
+//{
+//	int i = 0;
+//	int j = 0;
+//	int count = 0;
+//	for (i = 101; i < 200; i++)
+//	{
+//		for (j = 2; j <=sqrt(i); j++)
+//		{
+//			if (i%j == 0)
+//			{
+//				break;
+//			}
+//		}
+//		if (j > sqrt(i))
+//		{
+//			count++;
+//			printf("%d\n", i);
+//
+//		}
+//	}
+//	printf("\ncount = %d", count);
+//	return 0;
+//}
+
+
+#include<stdio.h>
+
+int binary_search(int a[], int k, int s)
+{
+	int left = 0;
+	int right = s - 1;
+	while (left <= right)
+	{
+		int mid = (left + right) / 2;
+		if (a[mid] > k)
+			right = mid - 1;
+		else if (a[mid] < k)
+			left = mid + 1;
+		else
+		{
+			return mid;
+		}
+	}	
+	return -1;
+}
+
+
 int main()
 {
-	int i = 0;
-	int j = 0;
-	int count = 0;
-	for (i = 101; i < 200; i++)
-	{
-		for (j = 2; j <=sqrt(i); j++)
-		{
-			if (i%j == 0)
-			{
-				break;
-			}
-		}
-		if (j > sqrt(i))
-		{
-			count++;
-			printf("%d\n", i);
-
-		}
+	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+	int key = 17;
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	int ret = binary_search(arr, key, sz);
+	if (-1 == ret)
+	{ 
+		printf("’“≤ªµΩ\n");
 	}
-	printf("\ncount = %d", count);
 	return 0;
 }
+
+
