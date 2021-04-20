@@ -13,7 +13,7 @@
 //
 //int main()
 //{
-//	int num = 1;
+//	int num = 1234;
 //	print(num);
 //	return 0;
 //}
@@ -112,7 +112,7 @@
 //	return 0;
 //}
 
-////使用迭代的方法求n的阶乘
+//使用迭代的方法求n的阶乘
 //int fac(int n)
 //{
 //	int i = 0;
@@ -164,3 +164,108 @@
 //当一个代码相对复杂时，难以用迭代实现，此时递归的简洁性看可以弥补它运行时带来的开销
 
 
+//#include<stdio.h>
+//#include<string.h>
+//
+//int my_strlen(char* str)
+//{
+//	if (*str == '\0')
+//	{
+//		return 0;
+//	}
+//	else
+//	{
+//		return 1 + my_strlen(str+ 1);
+//	}
+//}
+////迭代方法实现倒序排列
+////void reverse_string(char* str)
+////{
+////	int left = 0;
+////	int right = my_strlen(str)-1;
+////
+////	while (left < right)
+////	{
+////		char tmp = str[left];
+////		str[left] = str[right];
+////		str[right] = tmp;
+////		left++;
+////		right--;
+////	}
+////}
+//
+////递归方法实现倒叙排列
+// 
+//void reverse_string(char* str)
+//{
+//	char tmp = *str;
+//	int len = strlen(str);
+//	*str = str[len - 1];
+//	str[len - 1] = '\0';
+//	if (strlen(str + 1) >= 2)
+//	{
+//		reverse_string(str + 1);
+//	}
+//	str[len - 1] = tmp;
+//}
+//
+//int main()
+//{
+//	char arr[] = "abcdef";
+//	reverse_string(arr);
+//
+//	printf("%s\n", arr);
+//	return 0;
+//}
+//
+//#include<stdio.h>
+//
+//int DigitSum(int n)
+//{
+//	if (n > 9)
+//	{
+//		return DigitSum(n / 10) + (n%10);
+//	}
+//	else
+//	{
+//		return n;
+//	}
+//}
+//
+//
+//int main()
+//{
+//	int num = 1729;
+//	int sum = DigitSum(num);
+//
+//	printf("%d\n", sum);
+//	return 0;
+//}
+
+//double Pow(int n, int k)
+//{
+//	if (k == 0)
+//	{
+//		return 1;
+//	}
+//	if (k > 0)
+//	{
+//		return n * Pow(n, k - 1);
+//	}
+//	else
+//	{
+//		return 1.0 / (Pow(n, -k));
+//	}
+//}
+//
+//int main()
+//{
+//	int n = 0;
+//	int k = 0;
+//	scanf("%d%d", &n, &k);
+//	double ret = Pow(n, k);
+//	printf("%d的%d次方为%lf\n",n ,k ,ret);
+//	return 0;
+//
+//}
+//	
