@@ -269,3 +269,37 @@
 //
 //}
 //	
+
+
+//尾递归
+#include<stdio.h>
+
+int fab(int n, int a)
+{
+	if (n < 0)
+	{
+		return 0;
+	}
+	if (n == 0)
+	{
+		return 1;
+	}
+	if (n == 1)
+	{
+		return a;
+	}
+	if (n > 1)
+	{
+		return fab(n - 1, n * a);
+	}
+}
+
+int main()
+{
+	int input;
+	printf("请输入一个数: >\n");
+	scanf("%d", &input);
+	int ret = fab(input, 1);
+	printf("%d\n", ret);
+	return 0;
+}
