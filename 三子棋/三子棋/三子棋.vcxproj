@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="game.c" />
     <ClCompile Include="test.c" />
+    <ClCompile Include="实现电脑智能化.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />

@@ -1,6 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include "game.h"
+#include<windows.h>
+#include<stdlib.h>
 
 void menu()
 {
@@ -19,15 +21,15 @@ void game()
 	//打印一下棋盘 - 本质是打印数组内容
 	DisplayBoard(board, ROW, COL);
 	
-	char ret = 0;
+	char tmp = 0;
 	while (1)
 	{
 		//玩家走
 		PlayerMove(board, ROW, COL);
 		DisplayBoard(board, ROW, COL);
 		//判断玩家是否赢得游戏
-	    ret = IsWin(board, ROW, COL);
-		if (ret != 'C')
+	    tmp = IsWin(board, ROW, COL, '*');
+		if (tmp != 'C')
 		{
 			break;
 		}
@@ -35,17 +37,17 @@ void game()
 		ComputerMove(board, ROW, COL);
 		DisplayBoard(board, ROW, COL);
 		//判断电脑是否赢得游戏
-	    ret = IsWin(board, ROW, COL);
-		if (ret != 'C')
+		tmp = IsWin(board, ROW, COL, '#');
+		if (tmp != 'C')
 		{
 			break;
 		}
 	}
-	if (ret == '*')
+	if (tmp == '*')
 	{
 		printf("玩家获胜\n");
 	}
-	else if (ret == '#')
+	else if (tmp  == '#')
 	{
 		printf("电脑获胜\n");
 	}

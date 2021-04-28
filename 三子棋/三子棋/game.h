@@ -2,8 +2,8 @@
 #include<stdlib.h>
 #include<time.h>
 
-#define ROW 3
-#define COL 3
+#define ROW 5
+#define COL 5
 
 
 //º¯ÊıµÄÉùÃ÷
@@ -21,4 +21,4 @@ void InitBoard(char board[ROW][COL], int row, int col);
  void ComputerMove(char board[ROW][COL], int row, int col);
 
  //ÅĞ¶ÏÊäÓ®
- char IsWin(char board[ROW][COL], int row, int col);
+ char IsWin(char board[ROW][COL], int row, int col, char ret);

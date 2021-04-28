@@ -110,38 +110,99 @@ int IsFull(char board[ROW][COL], int row, int col)
 	return 1;//棋盘满了
 }
 
-char IsWin(char board[ROW][COL], int row, int col)
+char IsWin(char board[ROW][COL], int row, int col, char ret)
 {
 	int i = 0;
+	int j = 0;
+	int num = 0;
 	//判断三行
 	for (i = 0; i < row; i++)
 	{
-		if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][1] != ' ')
+		for (j = 0; j < col; j++)
 		{
-			return board[i][0];
+			if (board[i][j] == board[i][j+1] && board[i][j] == ret)
+			{
+				num++;
+				if (num == 4)
+				{
+					return ret;
+				}
+			}
+			else
+			{
+				num = 0;
+			}
 		}
 	}
 	//判断三列
-	for (i = 0; i < col; i++)
+	for (j = 0; j < col; j++)
 	{
-		if (board[0][i] == board[1][i] == board[2][i])
+		for (i = 0; i < row; i++)
 		{
-			return board[0][i];
+			if (board[i][j] == board[i+1][j] && board[i][j] == ret)
+			{
+				num++;
+				if (num == 4)
+				{
+					return ret;
+				}
+			}
+			else
+			{
+				num = 0;
+			}
 		}
 	}
+
 	//判断对角线
-	if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[1][1] != ' ')
+	for (i = 0; i < row; i++)
 	{
-		return board[1][1];
+		for (j = 0; j < col; j++)
+		{
+			if (i == j)
+			{
+				if (board[i][j] == board[i+1][j+1] && board[i][j] == ret)
+				{
+					num++;
+					if (num == 4)
+					{
+						return ret;
+					}
+				}
+				else
+				{
+					num = 0;
+				}
+			}
+		}
 	}
-	if (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[1][1] != ' ')
+	
+	for (i = 0; i < row; i++)
 	{
-		return board[1][1];
+		for (j = 0; j < col; j++)
+		{
+			if ((i + j) == row - 1)
+			{
+				if (board[i][j] == board[i - 1][j + 1] && board[i][j] == ret)
+				{
+					num++;
+					if (num == 4)
+					{
+						return ret;
+					}	
+				}
+				else
+				{
+					num = 0;
+				}
+			}
+		}
 	}
+
 	//判断平局
 	//如果棋盘满了返回1，不满返回0；
-	int ret = IsFull(board, row, col);
-	if(ret == 1)
+	int ful = IsFull(board, row, col);
+	if(ful == 1)
 	{
 		return 'Q';
 	}
