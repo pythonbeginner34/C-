@@ -53,6 +53,25 @@
 
 //交换两个变量的值，不使用其他变量
 
+#include<stdio.h>
+
+int main()
+{
+	int input1 = 0;
+	int input2 = 0;
+	//交换
+	int c = 0;
+	printf("请输入要交换的两个数：\n");
+	scanf("%d%d", &input1, &input2);
+	printf("input1 = %d, input2 = %d\n", input1, input2);
+	
+	input1 = input1 ^ input2;
+	input2 = input1 ^ input2;
+	input1 = input1 ^ input2;
+	printf("input1 = %d, input2 = %d\n", input1, input2);
+	return 0;
+}
+
 //int main()
 //{
 //	int a = 3;
@@ -81,6 +100,8 @@
 //	//a^0 = a a和0身异或还是它本身
 //}
 
+//#include<stdio.h>
+//
 //int main()
 //{
 //	int a = 0;
@@ -271,25 +292,63 @@
 //	return 0;
 //}
 
-#include<stdio.h>
+//#include<stdio.h>
+//
+//int  main()
+//{
+//	int input1 = 0;
+//	int input2 = 0;
+//	int result = 0;
+//	int num = 0;
+//	int i = 0;
+//	printf("请输入两个数\n");
+//	scanf("%d%d", &input1, &input2);
+//	result = input1 ^ input2;
+//	for (i = 0; i < 32; i++)
+//	{
+//		if (1 == ((result >> i) & 1))
+//		{
+//			num++;
+//		}
+//	}
+//	printf("%d\n", num);
+//	return 0;
+//}
 
-int  main()
-{
-	int input1 = 0;
-	int input2 = 0;
-	int result = 0;
-	int num = 0;
-	int i = 0;
-	printf("请输入两个数\n");
-	scanf("%d%d", &input1, &input2);
-	result = input1 ^ input2;
-	for (i = 0; i < 32; i++)
-	{
-		if (1 == ((result >> i) & 1))
-		{
-			num++;
-		}
-	}
-	printf("%d\n", num);
-	return 0;
-}
+//int main()
+//{
+//	int i = 0;
+//	int j = 0;
+//	int input = 0;
+//	printf("请输入一个数\n");
+//	scanf("%d", &input);
+//	printf("奇数位上的数为：\n");
+//	for (i = 0; i < 32; i += 2)
+//	{
+//		if (((input >> i) & 1) == 1)
+//		{
+//			printf("%d", 1);
+//		}
+//		else
+//		{
+//			printf("%d", 0);
+//		}
+//	}
+//	printf("\n");
+//	printf("偶数位上的数为：\n");
+//
+//	for (j = 0; j < 32; j += 2)
+//	{
+//		if (((input >> j) & 2) == 2)
+//		{
+//			printf("%d", 1);
+//		}
+//		else
+//		{
+//			printf("%d", 0);
+//		}
+//	}
+//	printf("\n");
+//	return 0;
+//}
+//
