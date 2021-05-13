@@ -210,4 +210,254 @@
 //}
 
 //兔子产子问题
+#include<stdio.h>
 
+//int main()
+//{
+//	int fib1 = 1;
+//	int fib2 = 1; 
+//	int fib = 0;
+//	int i = 0;
+//	printf("%-12d%-12d", fib1, fib2);
+//	for (i = 3; i <= 30; i++)
+//	{
+//		fib = fib1 + fib2;
+//		printf("%-12d", fib);
+//		if (i % 4 == 0)
+//		{
+//			printf("\n");
+//		}
+//		fib1 = fib2;//采用这种方法一次只能输出一个
+//		fib2 = fib;
+//	}
+//	return 0;
+//}
+
+
+//优化兔子产子问题
+
+//int main()
+//{
+//	int fib1 = 1, fib2 = 1;
+//	int i = 0;
+//	for (i = 1; i <= 15; i++)
+//	{
+//		printf("%-12d%-12d", fib1, fib2);
+//		if (i % 2 == 0)
+//		{
+//			printf("\n");
+//		}
+//		fib1 = fib1 + fib2;//采用这种方法进行输出一次可以输出两个；
+//		fib2 = fib1 + fib2;
+//	}
+//	return 0;
+//}
+
+//最佳存款方案
+//#include<stdio.h>
+//
+//int main()
+//{
+//	double  money = 0.0;
+//	int i = 0;
+//	for (i = 0; i < 5; i++)
+//	{
+//		money = (money + 1000.0) / (1 + 12 * 0.0063);
+//	}
+//	printf("应存入的钱数为：%0.2f\n", money);
+//	return 0;
+//}
+
+//牛顿迭代法求方程1的根
+//
+//#include<stdio.h>
+//#include<math.h>
+//
+//float solution(float a, float b, float c, float d);
+//
+//int main()
+//{
+//	float x, a, b, c, d;
+//	printf("请输入方程的系数：\n");
+//	scanf("%f %f %f %f", &a, &b, &c, &d);
+//	x = solution(a, b, c, d);
+//	printf("所求方程的根为: x = %f\n", x);
+//	return 0;
+//}
+//
+//float solution(float a, float b, float c, float d)
+//{
+//	float x0, x= 1.5, f, fd, h;
+//	do
+//	{
+//		x0 = x;
+//		f = a * x0 * x0 * x0 + b * x0 * x0 + c * x0 + d;
+//		fd = 3 * a * x0 * x0 + 2 * b * x0 + c;
+//		h = f / fd;
+//		x = x0 - h;
+//	} while (fabs(x - x0) >= 1e-5);
+//	return x;;
+//}
+
+//冒泡排序法
+//#include<stdio.h>
+//#define N 10
+//
+//int main()
+//{
+//	int i = 0;
+//	int j = 0;
+//	int tmp = 0;
+//	int count = 0;
+//	int arr[N] = { 0 };
+//	printf("请为数组初始化：\n");
+//	for (i = 0; i < N; i++)
+//	{
+//		scanf("%d", &arr[i]);
+//	}
+//
+//	for (i = 0; i < N - 1; i++)
+//	{
+//		for (j = 0; j < N - 1- i; j++)
+//		{
+//			if(arr[j] > arr[j+1])
+//			{
+//				tmp = arr[j];
+//				arr[j] = arr[j + 1];
+//				arr[j + 1] = tmp;
+//			}
+//		}
+//	}
+//	printf("交换后的数组元素为: \n");
+//	for (i = 0; i < N; i++)
+//	{
+//		count++;
+//		printf("%d  ", arr[i]);
+//		if (count % 5 == 0)
+//		{
+//			printf("\n");
+//		}
+//	}
+//	printf("\n");
+//	return 0;
+//}
+
+
+//选择排序
+
+//#include<stdio.h>
+//#define N 10
+//
+//int main()
+//{
+//	int i = 0;
+//	int j = 0;
+//	int tmp = 0;
+//	int arr[N] = { 0 };
+//	printf("请输入数据:\n");
+//	for (i = 0; i < N; i++)
+//	{
+//		scanf("%d", &arr[i]);
+//	}
+//	printf("The original data: \n");
+//	for (i = 0; i < N; i++)
+//	{
+//		printf("%4d", arr[i]);
+//		printf("\n");
+//	}
+//	for (i = 0; i < N - 1; i++)
+//	{
+//		for (j = i + 1; j < N; j++)
+//		{
+//			if (arr[i] > arr[j])
+//			{
+//				tmp = arr[i];
+//				arr[i] = arr[j];
+//				arr[j] = tmp;
+//			}
+//		}
+//	}
+//	printf("The data after sorted: \n");
+//	for (i = 0; i < N; i++)
+//	{
+//		printf("%4d", arr[i]);
+//		printf("\n");
+//	}
+//	return 0;
+//}
+
+
+//二分查找
+
+//#include<stdio.h>
+//#define N 10
+//int main()
+//{
+//	int k, left = 0, right = N - 1, mid ,m = -1;
+//	int arr[N] = {-3, 4, 7, 9, 13, 45, 67, 89,180 };
+//	printf("请输入你要查找的数：\n");
+//	scanf("%d", &k);
+//	while (left <= right)
+//	{
+//		mid = (left + right) / 2;
+//		if (arr[mid] < k)
+//		{
+//			left = mid + 1;
+//		}
+//		else if (arr[mid] > k)
+//		{
+//			right = mid - 1;
+//		}
+//		else
+//		{
+//			m = mid;
+//			break;
+//		}
+//	}
+//	if (m >= 0)
+//	{
+//		printf("mid = %d\n", m );
+//	}
+//	else
+//	{
+//		printf("Not be found!\n");
+//	}
+//	return 0;
+//}
+
+
+//顺序查找
+//#include<stdio.h>
+//#define N 10
+//
+//int main()
+//{
+//	int m, k = -1;
+//	int i = 0;
+//	int arr[N] = { -3,4,7,9,13,45,67,89,100,180 };
+//	printf("arr数组中的数据如下：\n");
+//	for (i = 0; i < N; i++)
+//	{
+//		printf("%d  ", arr[i]);
+//	}
+//	printf("\n");
+//	printf("请输入m:\n");
+//	scanf("%d", &m);
+//	for (i = 0; i < N; i++)
+//	{
+//		if (arr[i] == m)
+//		{
+//			k = i;
+//			break;
+//		}
+//	}
+//	if (k >= 0)
+//	{
+//		printf("找到了下标为 %d\n", k);
+//	}
+//	else
+//	{
+//		printf("Not be Found!\n");
+//	}
+//	return 0;
+//}
