@@ -164,21 +164,12 @@ char IsWin(char board[ROW][COL], int row, int col, char ret)
 	{
 		for (j = 0; j < col; j++)
 		{
-			if (i == j)
-			{
-				if (board[i][j] == board[i+1][j+1] && board[i][j] == ret)
+				if (board[i][j] == board[i+1][j+1] && board[i][j]== board[i + 2][j + 2] && board[i][j] == board[i + 3][j + 3] 
+					&& board[i][j] == board[i + 4][j + 4] && board[i][j] == ret)
 				{
-					num++;
-					if (num == 4)
-					{
+					
 						return ret;
-					}
 				}
-				else
-				{
-					num = 0;
-				}
-			}
 		}
 	}
 	
@@ -186,21 +177,12 @@ char IsWin(char board[ROW][COL], int row, int col, char ret)
 	{
 		for (j = 0; j < col; j++)
 		{
-			if ((i + j) == row - 1)
-			{
-				if (board[i][j] == board[i - 1][j + 1] && board[i][j] == ret)
+				if (board[i][j] == board[i + 1][j - 1] && board[i][j] == board[i + 2][j - 2] && board[i][j] == board[i + 3][j - 3]
+					 && board[i][j] == board[i + 4][j - 4] && board[i][j] == ret)
 				{
-					num++;
-					if (num == 4)
-					{
+					
 						return ret;
-					}	
-				}
-				else
-				{
-					num = 0;
-				}
-			}
+				}	
 		}
 	}
 

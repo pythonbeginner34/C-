@@ -1,7 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include "game.h"
-#include<windows.h>
 #include<stdlib.h>
 
 void menu()
