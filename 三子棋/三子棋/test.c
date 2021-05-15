@@ -34,7 +34,7 @@ void game()
 			break;
 		}
 		//电脑走
-		ComputerMove(board, ROW, COL);
+		ComputerMove(board, ROW, COL, '#');
 		DisplayBoard(board, ROW, COL);
 		//判断电脑是否赢得游戏
 		tmp = IsWin(board, ROW, COL, '#');
@@ -61,7 +61,6 @@ void game()
 int main()
 {
 	int input = 0;
-	srand((unsigned)time(NULL));
 	do
 	{
 		menu();

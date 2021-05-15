@@ -18,9 +18,10 @@ void InitBoard(char board[ROW][COL], int row, int col)
 void DisplayBoard(char board[ROW][COL], int row, int col)
 {
 	int i = 0;
+	int j = 0;
+
 	for (i = 0; i < row; i++)
 	{
-		int j = 0;
 		for (j = 0; j < col; j++)
 		{
 			printf(" %c ", board[i][j]);
@@ -77,20 +78,24 @@ void PlayerMove(char board[ROW][COL], int row, int col)
 	}
 }
 
-void ComputerMove(char board[ROW][COL], int row, int col)
+void ComputerMove(char board[ROW][COL], int row, int col, char color)
 {
+	int x = 0;
+	int y = 0;
+	Compo* head = (Compo*)malloc(sizeof(Compo));
+	Compo* he = (Compo*)malloc(sizeof(Compo));
 	printf("电脑走: >\n");
 
 	while (1)
 	{
-		int x = rand() % row;
-		int y = rand() % col;
-		if (board[x][y] == ' ')//判断占用
-		{
-			board[x][y] = '#';
-			break;
-		}
+		he = AI(head, board, ROW, COL, '#');
+		board[he->x][he->y] = '#';
+		break;
 	}
+	free(he);
+	head = NULL;
+	free(head);
+	head = NULL;	
 }
 
 int IsFull(char board[ROW][COL], int row, int col)
