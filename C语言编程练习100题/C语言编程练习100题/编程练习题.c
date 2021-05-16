@@ -461,3 +461,204 @@
 //	}
 //	return 0;
 //}
+
+
+//进制转换 - 利用数组完成
+
+//利用flag控制循环
+	//利用while控制程序重复执行
+	//将输进来的字符串存在数组中
+	//将输进来的字符转换成数字
+	//求出当前字符串的长度
+	//进制之间转换先转换成十进制
+	//利用进制之间的转换关系转换进制
+	//求出转换到目标进制后字符数组的长度
+	//逆序打印字符数组
+//#include<stdio.h>
+//#define MAXCHAR 101
+//#include<assert.h>
+//int char_to_num(char ch);
+//char num_to_char(int num);
+//int my_strlen(char* str);
+//int score_to_dacimal(int score, char* str);
+//int dacimal_to_object(char* str, int object, long dacimal_num);
+//void reverse_print(char* str, int length);
+//
+//int main()
+//{
+//	int flag = 1;
+//	int score;
+//	int object;
+//	int length;
+//	long dacimal_num;
+//	char temp[MAXCHAR];
+//
+//	while (flag)
+//	{
+//		printf("输入的数字为: ");
+//		scanf("%s", temp);
+//		printf("转换前的进制是: ");
+//		scanf("%d", &score);
+//		printf("转换后的进制为: ");
+//		scanf("%d", &object);
+//		printf("转换后的数字为:");
+//		dacimal_num = score_to_dacimal(score, temp);
+//		length = dacimal_to_object(temp, object, dacimal_num);
+//		reverse_print(temp, length);
+//		printf("继续请按1，退出请按二: \n");
+//		scanf("%d", &flag);
+//	}
+//	return 0;
+//}
+//
+//int char_to_num(char ch)
+//{
+//	if (ch >= '0' && ch <= '9')
+//	{
+//		return ch - '0';
+//	}
+//	else
+//	{
+//		return ch - 'A' + 10;
+//	}
+//}
+//
+//char num_to_char(int num)
+//{
+//	if (num >= 0 && num <= 9)
+//	{
+//		return (char)num + '0';
+//	}
+//	else
+//	{
+//		return (char)num - 10 + 'A';
+//	}
+//}
+//
+//int my_strlen(char* str)
+//{
+//	assert(str != NULL);
+//    char* start = str;
+//	while (*str != '\0')
+//	{
+//		str++;
+//	}
+//	return str - start;
+//}
+//
+//
+//int score_to_dacimal(int score, char* str)
+//{
+//	int i = 0;
+//	int tmp = 0;
+//	int dacimal_num = 0;
+//	tmp = my_strlen(str);
+//	for (i = 0; i < tmp; i++)
+//	{
+//		dacimal_num = (dacimal_num * score) + char_to_num(str[i]);//除二取余排倒数，最后一位的商肯定为0，也就是最左边一位
+//	}
+//	return dacimal_num;
+//}
+//
+//
+//int dacimal_to_object(char* str, int object, long dacimal_num)
+//{
+//	int i = 0;
+//	while (dacimal_num)
+//	{
+//		str[i] = num_to_char(dacimal_num % object);
+//
+//		dacimal_num = dacimal_num / object;
+//		i++;
+//	}
+//	str[i] = '\0';
+//	return i;
+//}
+//
+//void reverse_print(char* str, int length)
+//{
+//	int i = 0;
+//	for (i = length - 1; i >= 0; i--)
+//	{
+//		printf("%c", str[i]);
+//	}
+//	printf("\n");
+//}
+
+
+//个人所得税问题
+
+#include<stdio.h>
+#define TAXBASE 3500
+
+typedef struct
+{
+	long start;
+	long end;
+	double taxrate;
+}TAXTABLE;
+
+//结构体变量
+TAXTABLE Taxtable[] = {{0, 1500, 0.03}, {1500, 4500, 0.10}, {4500, 9000, 0.20},
+	{9000, 35000, 0.25}, {35000, 55000,0.30}, {55000,80000,0.35}, {80000, 1e10, 0.45}};
+//
+//double CaculateTax(long profit)
+//{
+//	int i = 0;
+//	double tax = 0.0;
+//	profit -= TAXBASE;
+//	for (i = 0; i < sizeof(Taxtable) / sizeof(TAXTABLE); i++)
+//	{
+//		if (profit > Taxtable[i].start)
+//		{
+//			if (profit > Taxtable[i].end)
+//			{
+//				tax += (Taxtable[i].end - Taxtable[i].start) * Taxtable[i].taxrate;
+//			}
+//			else
+//			{
+//				tax += (profit - Taxtable[i].start) * Taxtable[i].taxrate;
+//			}
+//			profit -= Taxtable[i].end;
+//			printf("征税范围：%6ld -%6ld  该范围内交税金额： %6.2f  超出该范围的金额： %6ld\n",
+//				Taxtable[i].start, Taxtable[i].end, tax, (profit) > 0 ? profit : 0);
+//		}
+//	}
+//	return tax;
+//}
+
+//结构体指针
+double CaculateTax(long profit)
+{
+	TAXTABLE* p;
+	double tax = 0.0;
+	for (p = Taxtable; p < Taxtable + sizeof(Taxtable) / sizeof(TAXTABLE); p++)
+	{
+		if (profit > p->start)
+		{
+			if (profit > p->end)
+			{
+				tax += ((p->end) - (p->start)) * p->taxrate;
+			}
+			else
+			{
+				tax += (profit - (p->start)) * p->taxrate;
+			}
+			profit -= p->end;
+			printf("征税范围: %6ld - %6ld  该范围内缴纳税金额: %6.2f  超出该范围金额: %6ld\n"
+				, p->start, p->end, tax, (profit > 0) ? profit : 0);
+		}
+	}
+	return tax;
+}
+
+int main()
+{
+	long profit;
+	double tax;
+	printf("请输入个人收入金额: \n");
+	scanf("%ld", &profit);
+	tax = CaculateTax(profit);
+	printf("应缴纳个人所得税为: %12.2f\n", tax);
+	return 0;
+}
