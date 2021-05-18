@@ -205,3 +205,35 @@
 //    printf("%lf", result);
 //    return 0;
 //}
+
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+
+int main()
+{
+	char arr[100] = { 0 };
+	gets(arr);
+	int length = strlen(arr);
+	char* start = arr;
+	char* end = arr + length - 1;
+	while (*start != '\0')
+	{
+		if (*start == ' ')
+		{
+			*start = '\0';
+		}
+		start++;
+	}
+	start = arr;
+	while (end > start)
+	{
+		if (*end == '\0')
+		{
+			printf("%s ", end + 1);	
+		}
+		end--;
+	}
+	printf("%s", end);
+	return 0;
+}
