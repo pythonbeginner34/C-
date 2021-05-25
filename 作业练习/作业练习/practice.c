@@ -496,25 +496,25 @@
 //	assert(dest != NULL);
 //	assert(src != NULL);
 //	char* start = dest;
-//	拷贝src指向的字符串到dest指向的空间， 包括'\0'
-//	while (*dest++ == *src++)
+//	/*拷贝src指向的字符串到dest指向的空间， 包括'\0'*/
+//	while (*dest++ = *src++)
 //	{
 //		;
 //	}
-//	返回目的地的起始地址
+//	/*返回目的地的起始地址*/
 //	return start;
 //}
 //
 //int main()
 //{
 //	char arr1[] = "abcdefghi";
-//	char arr2[] = "bit";
+//	char arr2[] = "wang";
 //	my_strcpy(arr1, arr2);
 //	printf("%s\n", arr1);
 //	return 0;
 //}
 
-
+//杨氏矩阵
 //#include<stdio.h>
 //#define N 5
 //
@@ -522,18 +522,171 @@
 //{
 //	int i = 0;
 //	int k = 0;
+//	int row = 0;
+//	int col = N - 1;
 //	printf("请输入要查找的数: \n");
 //	scanf("%d", &k);
-//	int arr[N][N] = { {1,2,3,4,5}, {2,3,4,5,6}, {3,4,5,6,7}, {4,5,6,7,8},{5,6,7,8,9} };
-//	int(*p)[5] = arr + N - 1;
-//	int* q = *p + N - 1;
-//	for (i = N; i >= 0; i--)
+//	int arr[N][N] = { {1,2,3,4,5}, {6,7,8,9,10}, {11,12,13,14,15}, {16,17,17,18,19},{20,21,22,23,24} };
+//	while (row <= N -1 && col >= 0)
 //	{
-//		if (k < q)
+//		if (k <= arr[N - 1][N - 1] && k >= arr[0][0])
 //		{
-//
+//			if (k > arr[row][col])
+//			{
+//				row++;
+//			}
+//			else if(k < arr[row][col])
+//			{
+//				col--;
+//			}
+//			else
+//			{
+//				printf("找到了下标为%d %d\n", row, col);
+//				break;
+//			}
+//		}
+//		else
+//		{
+//			printf("要找的数不在矩阵中 \n");
+//			break;
 //		}
 //	}
-//
+//	return 0;
 //}
 
+//交换奇数偶数在数组的位置
+//#include<stdio.h>
+//
+//void exchange(int* str, int length)
+//{
+//	int left = 0;
+//	int right = length - 1;
+//	int tmp = 0;
+//	while (left < right)
+//	{
+//		while ((left < right) && (str[left] % 2 == 1))
+//		{
+//			left++;
+//		}
+//
+//		while ((left < right) && (str[right] % 2 == 0))
+//		{
+//			right--;
+//		}
+//
+//		if (left < right)
+//		{
+//			tmp = str[left];
+//			str[left] = str[right];
+//			str[right] = tmp;
+//		}
+//	}
+//}
+//
+//void print(int* str, int length)
+//{
+//	int i = 0;
+//	for (i = 0; i < length; i++)
+//	{
+//		printf("%d ", str[i]);
+//	}
+//}
+//
+//int main()
+//{
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	exchange(arr, sz);
+//	print(arr, sz);
+//	return 0;
+//}
+
+
+//杨辉三角
+//#include<stdio.h>
+//#define N 10
+//
+//int main()
+//{
+//	int i = 0;
+//	int j = 0;
+//	int arr[N][N] = { 0 };
+//	for (i = 0; i < N; i++)
+//	{
+//		for (j = 0; j <= i; j++)
+//		{
+//			if (arr[i][0] == 0)
+//			{
+//				arr[i][0] = 1;
+//			}
+//			if (i == j)
+//			{
+//				arr[i][j] = 1;
+//			}
+//			if (i >= 2 && j >= 1)
+//			{
+//				arr[i][j] = arr[i - 1][j - 1] + arr[i - 1][j];
+//			}
+//		}
+//	}
+//	for (i = 0; i < N; i++)
+//	{
+//		for (j = 0; j <= i; j++)
+//		{
+//			printf("%d ", arr[i][j]);
+//		}
+//		printf("\n");
+//	}
+//	return 0;
+//}
+
+//查找凶手
+//#include<stdio.h>
+//
+//int main()
+//{
+//	char kill = 0;
+//	for (kill = 'A'; kill <= 'D'; kill++)
+//	{
+//		if ((kill != 'A') + (kill == 'C') + (kill == 'D') + (kill != 'D') == 3)
+//		{
+//			printf("凶手是%c", kill);
+//		}
+//	}
+//	return 0;
+//}
+//
+//#include<stdio.h>
+//
+int main()
+{
+	int a = 0;
+	int b = 0;
+	int c = 0;
+	int d = 0;
+	int e = 0;
+	for (a = 1; a <= 5; a++)
+	{
+		for (b = 1; b <= 5; b++)
+		{
+			for (c = 1; c <= 5; c++)
+			{
+				for (d = 1; d <= 5; d++)
+				{
+					for (e = 1; e <= 5; e++)
+					{
+						if (((a == 3) + (b == 2) == 1 && (b == 2) + (e == 4) == 1 &&
+							(c == 1) + (d == 2) == 1 && (c == 5) + (d == 3) == 1 && (e == 4) + (a == 1) == 1) == 1)
+						{
+							if(a* b * c* d* e == 120)
+							{
+								printf("a = %d, b = %d, c = %d, d = %d, e =%d\n", a, b, c, d, e);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	return 0;
+}
