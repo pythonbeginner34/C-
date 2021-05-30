@@ -469,63 +469,177 @@
 //	return 0;
 //}
 
-#include<stdlib.h>
+//#include<stdlib.h>
+//
+//struct stu
+//{
+//	char name[20];
+//	int age;
+//};
+//
+//int cmp_int(const void* e1, const void* e2)
+//{
+//	//比较两个整型值的
+//	return *(int*)e1  - *(int*)e2;
+//}
+//
+//int cmp_float(const void* e1, const void* e2)
+//{
+//	return (int)(*(float*)e1 - *(float*)e2);
+//}
+//
+//int cmp_struct(const void* e1, const void* e2)
+//{
+//	return (int)(*())
+//}
+//
+//void test1()
+//{
+//	int arr[10] = { 9,8,7,6,5,4,3,2,1,0 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	qsort(arr, sz, sizeof(arr[0]), cmp_int);
+//	int i = 0;
+//	for (i = 0; i < sz; i++)
+//	{
+//		printf("%d\n", arr[i]);
+//	}
+//}
+//void test2()
+//{
+//	float f[] = { 9.0,8.0,7.0,6.0,5,0,4.0,3.0,2.0,1.0 };
+//	int sz = sizeof(f) / sizeof(f[0]);
+//	qsort(f, sz, sizeof(f[0]), cmp_float);
+//	int j = 0;
+//	for (j = 0; j < sz; j++)
+//	{
+//		printf("%f\n", f[j]);
+//	}
+//
+//}
+//void test3()
+//{
+//	struct stu s[3] = { {"zhangshan",20} , { "list",30 }, { "wangwu",10 } };
+//	int sz = sizeof(s) / sizeof(s[0]);
+//	qsort(s, sz, sizeof(s[0]), cmp_struct);
+//}
+//int main()
+//{
+//	//test1();
+//	test2();
+//	return 0;
+//}
+//
 
-struct stu
-{
-	char name[20];
-	int age;
-};
 
-int cmp_int(const void* e1, const void* e2)
-{
-	//比较两个整型值的
-	return *(int*)e1  - *(int*)e2;
-}
+//#include<stdio.h>
+//
+//int main()
+//{
+//	int a = 20;
+//	int* p1 = &a;//int* 代表p是一个整型指针类型，将a的地址给p，此时p中存放的就是一个整型的地址
+//	printf("%d\n", *p1);//*是一个解引用操作符，也叫寻址符，*p代表通过p中存放的地址找到相应的数据
+//	*p1= 30;//我们也可以再找到p中地址对应的数据后更改它的值。
+//	printf("%d\n", *p1);
+//	float b = 3.14f;//浮点型同理
+//	float* p2 = &b;//定义一个浮点型指针用于存储浮点型数据的地址
+//	printf("%f", *p2);
+// 	return 0;
+//}
 
-int cmp_float(const void* e1, const void* e2)
-{
-	return (int)(*(float*)e1 - *(float*)e2);
-}
+//#include<stdio.h>
+//
+//int main()
+//{
+//	int i = 0x11223344;
+//	int* pi = &i;
+//	*pi = 0;
+//
+//	int c = 0x11223344;
+//	char* pc = &c;
+//	*pc = 0;
+//	printf("%x\n", i);
+//	printf("%x\n", c);
+//
+//	return 0;
+//}
+//
+//#include<stdio.h>
+//int main()
+//{
+//	char arr1[] = "hello world!";
+//	char arr2[] = "hello world!";
+//	char* str1 = "hello world!";
+//	char* str2 = "hello world!";
+//	if (arr1 == arr2)
+//	{
+//		printf("arr1 and arr2 are same.\n");
+//	}
+//	else
+//	{
+//		printf("arr1 and arr2 are not same.\n");
+//	}
+//
+//	if (str1 == str2)
+//	{
+//		printf("str1 and str2 are same.\n");
+//	}
+//	else
+//	{
+//		printf("str1 and str2 are not same\n");
+//	}
+//	return 0;
+//}
 
-int cmp_struct(const void* e1, const void* e2)
-{
-	return (int)(*())
-}
+//#include<stdio.h>
+//
+//void print1_arr(int arr[3][5], int row, int col)
+//{
+//	int i = 0;
+//	int j = 0;
+//	for (i = 0; i < row; i++)
+//	{
+//		for (j = 0; j < col; j++)
+//		{
+//			printf("%d ", arr[i][j]);
+//		}
+//		printf("\n");
+//	}
+//}
+//
+//void print2_arr(int(*arr)[5], int row, int col)
+//{
+//	int i = 0;
+//	int j = 0;
+//	for (i = 0; i < row; i++)
+//	{
+//		for (j = 0; j < col; j++)
+//		{
+//			printf("%d ", *(*(arr + i) + j));
+//		}
+//		printf("\n");
+//	}
+//}
+//
+//int main()
+//{
+//	int arr[3][5] = { 1,2,3,4,5,6,7,8,9,10 };
+//	print1_arr(arr, 3, 5);
+//	print2_arr(arr, 3, 5);
+//	return 0;
+//}
 
-void test1()
-{
-	int arr[10] = { 9,8,7,6,5,4,3,2,1,0 };
-	int sz = sizeof(arr) / sizeof(arr[0]);
-	qsort(arr, sz, sizeof(arr[0]), cmp_int);
-	int i = 0;
-	for (i = 0; i < sz; i++)
-	{
-		printf("%d\n", arr[i]);
-	}
-}
-void test2()
-{
-	float f[] = { 9.0,8.0,7.0,6.0,5,0,4.0,3.0,2.0,1.0 };
-	int sz = sizeof(f) / sizeof(f[0]);
-	qsort(f, sz, sizeof(f[0]), cmp_float);
-	int j = 0;
-	for (j = 0; j < sz; j++)
-	{
-		printf("%f\n", f[j]);
-	}
+#include<stdio.h>
 
-}
-void test3()
-{
-	struct stu s[3] = { {"zhangshan",20} , { "list",30 }, { "wangwu",10 } };
-	int sz = sizeof(s) / sizeof(s[0]);
-	qsort(s, sz, sizeof(s[0]), cmp_struct)
-}
 int main()
 {
-	//test1();
-	test2();
+	int a[5] = { 98,84,74,67,59 };
+	int b[4] = { 93,92,83,73 };
+	int c[6] = { 90,95,64,57,54,70 };
+	int d[3] = { 99, 98,78 };
+	int* arr[4] = { a,b,c,d };
+	printf("%d\n", *(arr[0] + 2));
+	printf("%d\n", *(arr[3] + 1));
+	printf("%d\n", arr[0][2]);
+	printf("%d\n", arr[3][1]);
 	return 0;
 }
-
