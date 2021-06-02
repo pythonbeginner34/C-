@@ -628,18 +628,146 @@
 //	return 0;
 //}
 
+//#include<stdio.h>
+//
+//int main()
+//{
+//	int a[5] = { 98,84,74,67,59 };
+//	int b[4] = { 93,92,83,73 };
+//	int c[6] = { 90,95,64,57,54,70 };
+//	int d[3] = { 99, 98,78 };
+//	int* arr[4] = { a,b,c,d };
+//	printf("%d\n", *(arr[0] + 2));
+//	printf("%d\n", *(arr[3] + 1));
+//	printf("%d\n", arr[0][2]);
+//	printf("%d\n", arr[3][1]);
+//	return 0;
+//}
+
+
+//#include<stdio.h>
+//
+//void test(int arr[])
+//{}
+//void test(int arr[10])
+//{}
+//void test(int* arr)
+//{}
+//void test2(int* arr[20])
+//{}
+//void test2(int** arr)
+//{}
+//
+//int main()
+//{
+//	int arr[10] = { 0 };
+//	int* arr2[20] = { 0 };
+//	test(arr);
+//	test2(arr2);
+//}
+
+//void test(int arr[3][5])
+//{}
+//void test(int arr[][])
+//{}
+//void test(int arr[][5])
+//{}
+//void test(int* arr)
+//{}
+//void test(int* arr[5])
+//{}
+//void test(int** arr)
+//{}
+//
+//int main()
+//{
+//	int arr[3][5] = { 0 };
+//	test(arr);
+//}
+//
+
+//#include<stdio.h>
+//
+//void test()
+//{
+//	printf("hehe");
+//}
+//
+//int main()
+//{
+//	printf("%p\n", &test);
+//	printf("%p\n", test);
+//	return 0;
+//}
+
+//#include<stdio.h>
+//#include<stdlib.h>
+//
+//int int_cmp(const void* p1, const void* p2)
+//{
+//	return (*(int*)p1 - *(int*)p2);
+//}
+//
+//int main()
+//{
+//	int arr[] = { 1,3,5,7,9,2,4,6,8,0 };
+//	int i = 0;
+//
+//	qsort(arr, sizeof(arr) / sizeof(arr[0]), sizeof(int), int_cmp);
+//	for (i = 0; i < sizeof(arr) / sizeof(arr[0]); i++)
+//	{
+//		printf("%d", arr[i]);
+//	}
+//	printf("\n");
+//	return 0;
+//}
+
+//使用冒泡排序模拟实现qsort
+
 #include<stdio.h>
+
+int int_cmp(const void* p1, const void* p2)
+{
+	return(*(int*)p1 - *(int*)p2);
+}
+
+void swap(void* p1, void* p2, int size)
+{
+	int i = 0;
+	for (i = 0; i < size; i++)
+	{
+		char tmp = *((char*)p1 + i);
+		*((char*)p1 + i) = *((char*)p2 + i);
+		*((char*)p2 + i) = tmp;
+	}
+}
+
+void bubble(void* base, int count, int size, int (*cmp)(void*, void*))
+{
+	int i = 0;
+	int j = 0;
+	for (i = 0; i < count - 1; i++)
+	{
+		for (j = 0; j < count - i - 1; j++)
+		{
+			if (cmp((char*)base + j * size, (char*)base + (j + 1) * size) > 0)
+			{
+				swap((char*)base + j * size, (char*)base + (j + 1) * size, size);
+			}
+		}
+	}
+
+}
 
 int main()
 {
-	int a[5] = { 98,84,74,67,59 };
-	int b[4] = { 93,92,83,73 };
-	int c[6] = { 90,95,64,57,54,70 };
-	int d[3] = { 99, 98,78 };
-	int* arr[4] = { a,b,c,d };
-	printf("%d\n", *(arr[0] + 2));
-	printf("%d\n", *(arr[3] + 1));
-	printf("%d\n", arr[0][2]);
-	printf("%d\n", arr[3][1]);
+	int arr[] = { 1,3,5,7,9,2,4,6,8,0 };
+	int i = 0;
+	bubble(arr, sizeof(arr) / sizeof(arr[0]), sizeof(int), int_cmp);
+	for (i = 0; i < sizeof(arr) / sizeof(arr[0]); i++)
+	{
+		printf(("%d ", arr[i]));
+	}
+	printf("\n");
 	return 0;
 }

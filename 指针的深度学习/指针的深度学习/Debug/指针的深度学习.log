@@ -1,2 +1,4 @@
 ﻿  practices.c
+D:\C语言\指针的深度学习\指针的深度学习\practices.c(769,25): warning C4047: “函数”:“const char *const ”与“int”的间接级别不同
+D:\C语言\指针的深度学习\指针的深度学习\practices.c(769,16): warning C4024: “printf”: 形参和实参 1 的类型不同
   指针的深度学习.vcxproj -> D:\C语言\指针的深度学习\Debug\指针的深度学习.exe
