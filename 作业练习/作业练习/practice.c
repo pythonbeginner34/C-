@@ -658,35 +658,134 @@
 //
 //#include<stdio.h>
 //
-int main()
-{
-	int a = 0;
-	int b = 0;
-	int c = 0;
-	int d = 0;
-	int e = 0;
-	for (a = 1; a <= 5; a++)
-	{
-		for (b = 1; b <= 5; b++)
-		{
-			for (c = 1; c <= 5; c++)
-			{
-				for (d = 1; d <= 5; d++)
-				{
-					for (e = 1; e <= 5; e++)
-					{
-						if (((a == 3) + (b == 2) == 1 && (b == 2) + (e == 4) == 1 &&
-							(c == 1) + (d == 2) == 1 && (c == 5) + (d == 3) == 1 && (e == 4) + (a == 1) == 1) == 1)
-						{
-							if(a* b * c* d* e == 120)
-							{
-								printf("a = %d, b = %d, c = %d, d = %d, e =%d\n", a, b, c, d, e);
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	return 0;
-}
+//int main()
+//{
+//	int a = 0;
+//	int b = 0;
+//	int c = 0;
+//	int d = 0;
+//	int e = 0;
+//	for (a = 1; a <= 5; a++)
+//	{
+//		for (b = 1; b <= 5; b++)
+//		{
+//			for (c = 1; c <= 5; c++)
+//			{
+//				for (d = 1; d <= 5; d++)
+//				{
+//					for (e = 1; e <= 5; e++)
+//					{
+//						if (((a == 3) + (b == 2) == 1 && (b == 2) + (e == 4) == 1 &&
+//							(c == 1) + (d == 2) == 1 && (c == 5) + (d == 3) == 1 && (e == 4) + (a == 1) == 1) == 1)
+//						{
+//							if(a* b * c* d* e == 120)
+//							{
+//								printf("a = %d, b = %d, c = %d, d = %d, e =%d\n", a, b, c, d, e);
+//							}
+//						}
+//					}
+//				}
+//			}
+//		}
+//	}
+//	return 0;
+//}
+
+
+//#include<stdio.h>
+//int main()
+//{
+//    printf("%d\n", sizeof(char));//sizeof() 是一种内存容量度量函数，功能是返回一个变量或者类型的大小
+//    printf("%d\n", sizeof(signed char));
+//    printf("%d\n", sizeof(unsigned char));
+//    printf("%d\n", sizeof(short));
+//    printf("%d\n", sizeof(unsigned short));
+//    printf("%d\n", sizeof(int));
+//    printf("%d\n", sizeof(unsigned int));
+//    printf("%d\n", sizeof(long));
+//    printf("%d\n", sizeof(unsigned long));
+//    printf("%d\n", sizeof(float));
+//    printf("%d\n", sizeof(double));
+//    return 0;
+//}
+
+//#include<stdio.h>
+//
+//int main()
+//{
+//	char arr1[] = "hello";//以字符串的形式存入数组，以\0结尾
+//	char arr2[] = { 'h','e','l','l','o' };//以字符的形式传入数组结尾没有\0
+//	char arr3[] = { 'h','e','l','l','o','\0' };//与上式相比得出字符串结尾会默认带一个\0
+//	printf("%s\n", arr1);
+//	printf("%s\n", arr2);
+//	printf("%s\n", arr3);
+//	return 0;
+//}
+
+//#include<stdio.h>
+//int main()
+//{
+//	printf("%d\n", strlen("abcdef"));
+//	printf("%d\n", strlen("c:\test\328\test.c"));
+//	return 0;
+//}
+
+
+//#include<stdio.h>
+//#include<string.h>
+//
+//void levorotation(char* str, int length, int time)
+//{
+//	int i = 0;
+//	for (i = 0; i < length; i++)
+//	{
+//		printf("%c", str[time]);
+//		time++;
+//	}
+//	
+//}
+//
+//int main()
+//{
+//	char arr[10] ="ABCD";
+//	int time = 0;
+//	int sz = strlen(arr);
+//	char* tmp = strcat(arr, "ABCD");
+//	printf("请输入要左旋的次数:\n");
+//	scanf("%d", &time);
+//	levorotation(arr, sz, time);
+//	return 0;
+//}
+
+
+//#include<stdio.h>
+//#include<stdio.h>
+//
+//void leftmove(char* str, int length, int time)
+//{
+//	char* tmp = str;
+//	int i = 0;
+//	int j = 0;
+//	for (i = 0; i < time; i++)
+//	{
+//		char t = *tmp;
+//		for (j = 0; j < length - 1; j++)
+//		{
+//			tmp[j] = tmp[j + 1];
+//		}
+//		tmp[j] = t;
+//	}
+//	printf("%s", tmp);
+//}
+//
+//
+//int main()
+//{
+//	char arr[10] = "ABCD";
+//	int time = 0;
+//	int sz = strlen(arr);
+//	printf("请输入要左旋的次数:\n");
+//	scanf("%d", &time);
+//	leftmove(arr, sz, time);
+//	return 0;
+//}
