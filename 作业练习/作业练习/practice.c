@@ -752,8 +752,16 @@
 //	int sz = strlen(arr);
 //	char* tmp = strcat(arr, "ABCD");
 //	printf("请输入要左旋的次数:\n");
-//	scanf("%d", &time);
-//	levorotation(arr, sz, time);
+//	while (1)
+//	{
+//		scanf("%d", &time);
+//		if (time <= 4)
+//		{
+//			levorotation(arr, sz, time);
+//			break;
+//		}
+//		printf("输入错误请重新输入: \n");
+//	}
 //	return 0;
 //}
 
@@ -789,4 +797,301 @@
 //	leftmove(arr, sz, time);
 //	return 0;
 //}
+
+
+//#include<stdio.h>
 //
+//int judge_substring(char* str1, char* str2)
+//{
+//	if (strlen(str1) != strlen(str2))
+//	{
+//		return 0;
+//	}
+//	
+//	int length = strlen(str1);
+//	strncat(str1, str1, length);
+//	char* ret = strstr(str1, str2);
+//	return ret != NULL;
+//}
+//
+//int main()
+//{
+//	char arr1[20] = "AABCD";
+//	char arr2[] = "BCDAA";
+//	int ret = judge_substring(arr1, arr2);
+//	if (ret = 1)
+//	{
+//		printf("字符%s是字符%s的子串\n", arr2, arr1);
+//	}
+//	else
+//	{
+//		printf("字符%s不是字符%s的子串\n", arr2, arr1);
+//	}
+//	return 0;
+//}
+
+//#include<stdio.h>
+//
+//int int_cmp(const void* p1, const void* p2)
+//{
+//	return (*(int*)p1 - *(int*)p2);
+//}
+//
+//void swap(void* p1, void* p2, int size)
+//{
+//	int i = 0;
+//	for (i = 0; i < size; i++)
+//	{
+//		char tmp = *((char*)p1 + i);
+//		*((char*)p1 + i) = *((char*)p2 + i);
+//		*((char*)p2 + i) = tmp;
+//	}
+//}
+//void bubble(char* str, int count, int size, int(*cmp)(void*, void*))
+//{
+//	int i = 0;
+//	int j = 0;
+//	for (i = 0; i < count - 1; i++)
+//	{
+//		for (j = 0; j < count - 1 - i; j++)
+//		{
+//			if (cmp((char*)str + j * size, (char*)str + (j + 1) * size)> 0)
+//			{
+//				swap((char*)str + j * size, (char*)str + (j + 1) * size, size);
+//			}
+//		}
+//	}
+//}
+//
+//int main()
+//{
+//	int arr[] = {1,7,6,4,3,5,2,8,9,0};
+//	int i = 0;
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	bubble(arr, sz, sizeof(int), int_cmp);
+//	for (i = 0; i < sizeof(arr)/sizeof(arr[0]); i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//	printf("\n");
+//	return 0;
+//}
+
+
+//#include<stdio.h>
+//#include<string.h>
+//
+//int int_cmp(const void* p1, const void* p2)
+//{
+//	return (*(int*)p1 - *(int*)p2);
+//}
+//
+//int char_cmp(const void* p1, const void* p2)
+//{
+//	return (*(char*)p1 - *(char*)p2);
+//}
+//
+//struct stu
+//{
+//	char name[20];
+//	int age;
+//};
+//
+////按姓名排序
+//int struct_name_cmp(const void* p1, const void* p2)
+//{
+//	return strcmp(((struct stu*)p1) -> name, ((struct stu*)p2) ->name);
+//}
+//
+////按年龄排序
+//int struct_age_cmp(const void* p1, const void* p2)
+//{
+//	return ((struct stu*)p1)->age - ((struct stu*)p2)->age;
+//}
+//
+//int main()
+//{
+//	int arr[] = {1,7,6,4,3,5,2,8,9,0};
+//	char arr2[] = { 'b','c','A', 'D', 'C','c' };
+//	struct stu s[3] = { {"zhangsan", 23}, {"lisi",28}, {"wangwu", 20} };
+//	int i = 0;
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	int sz2 = sizeof(arr2) / sizeof(arr2[0]);
+//	int sz3 = sizeof(s) / sizeof(s[0]);
+//	qsort(arr, sz, sizeof(int), int_cmp);
+//	qsort(arr2, sz2, sizeof(char), char_cmp);
+//	qsort(s, sz3, sizeof(s[0]), struct_name_cmp);
+//	qsort(s, sz3, sizeof(s[0]), struct_age_cmp);
+//	for (i = 0; i < sizeof(arr)/sizeof(arr[0]); i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//	printf("\n");
+//	for (i = 0; i < sizeof(arr2) / sizeof(arr2[0]); i++)
+//	{
+//		printf("%c ", arr2[i]);
+//	}
+//	printf("\n");
+//	for (i = 0; i < sizeof(s) / sizeof(s[0]); i++)
+//	{
+//		printf("%d ", s[i].age);
+//	}
+//	printf("\n");
+//	for (i = 0; i < sizeof(s) / sizeof(s[0]); i++)
+//	{
+//		printf("%s ", s[i].name);
+//	}
+//	printf("\n");
+//	return 0;
+//}
+
+//#include<stdio.h>
+//
+//int main()
+//{
+//	int i = 0;
+//	int j = 0;
+//	int n = 0;
+//	while (scanf("%d", &n) != EOF)
+//	{
+//		for (i = 0; i < n; i++)
+//		{
+//			for (j = 0; j < n; j++)
+//			{
+//				if (i == j || i + j == n - 1)
+//				{
+//					printf("*");
+//				}
+//				else
+//				{
+//					printf(" ");
+//				}
+//			}
+//			printf("\n");
+//		}
+//	}
+//}
+
+
+//#include<stdio.h>
+//
+//void bubble(int* str, int length)
+//{
+//	int i = 0;
+//	int j = 0;
+//	int tmp = 0;
+//	for (i = 0; i < 6; i++)
+//	{
+//		for (j = 0; j < 6 - i; j++)
+//		{
+//			if (str[j] > str[j + 1])
+//			{
+//				tmp = str[j];
+//				str[j] = str[j + 1];
+//				str[j + 1] = tmp;
+//			}
+//		}
+//	}
+//}
+//
+//int sum(int* str, int left, int right)
+//{
+//	int i = 0;
+//	int sum = 0;
+//	for (i = left; i <= right; i++)
+//	{
+//		sum += str[i];
+//	}
+//	return sum;
+//}
+//
+//void average(int sum, int num)
+//{
+//	double average = (double)sum / num;
+//	double ave = (int)(average * 100 + 0.5) / 100.0;
+//	printf("%.2lf", ave);
+//}
+//
+//int main()
+//{
+//	int i = 0;
+//	int j = 0;
+//	int arr[7] = { 0 };
+//	int left = 1;
+//	int s = 0;
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	int right = sz - 2;
+//	for (i = 0; i < 7; i++)
+//	{
+//		scanf("%d", &arr[i]);
+//	}
+//	bubble(arr, sz);
+//	s = sum(arr, left, right);
+//	average(s, 5);
+//	return 0;
+//}
+
+//#include<stdio.h>
+//#include<stdlib.h>
+//
+//int main()
+//{
+//	int i = 0;
+//	int j = 0;
+//	int N = 0;
+//	int tmp = 0;
+//	scanf("%d", &N);
+//	int* arr = (int*)malloc((N + 1)* sizeof(int));
+//	int* start = arr;
+//	for (i = 0; i < N; i++)
+//	{
+//		scanf("%d", start++);
+//	}
+//	scanf("%d", start);
+//	start = arr;
+//	for(i = 0; i < N ; i++)
+//	{
+//		for (j = 0; j < N  - i; j++)
+//		{
+//			if (start[j] > start[j + 1])
+//			{
+//				tmp = start[j];
+//				start[j] = start[j + 1];
+//				start[j + 1] = tmp;
+//			}
+//		}
+//	}
+//	for (i = 0; i < N + 1; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//	free(arr);
+//	arr = NULL;
+//	return 0;
+//}
+
+//#include<stdio.h>
+//
+//
+//void is_leap(int n, int* arr)
+//{
+//	if ((n % 4 == 0 && n % 100 != 0) || n % 400 == 0)
+//	{
+//		arr[1] = 29;
+//	}
+//}
+//
+//int main()
+//{
+//	int arr[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+//	int year = 0;
+//	int month = 0;
+//	while (scanf("%d %d", &year, &month) != EOF)
+//	{
+//		is_leap(year, arr);
+//		printf("%d\n", arr[month - 1]);
+//		arr[1] = 28;
+//	}
+//	return 0;
+//}
+
