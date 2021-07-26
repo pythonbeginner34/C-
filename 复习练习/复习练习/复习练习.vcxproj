@@ -140,12 +140,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="三个数排序.c" />
+    <ClCompile Include="关机.c" />
     <ClCompile Include="密码.c" />
+    <ClCompile Include="数字问题.c" />
     <ClCompile Include="查找.c" />
     <ClCompile Include="渐变.c" />
     <ClCompile Include="猜数字游戏.c" />
+    <ClCompile Include="练习.c" />
     <ClCompile Include="输入区别.c" />
     <ClCompile Include="随机数的生成.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\sub\sub\sub.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,5 +1,2 @@
-﻿  三个数排序.c
-  输入区别.c
-  随机数的生成.c
-  正在生成代码...
-  复习练习.vcxproj -> D:\C语言\复习练习\Debug\复习练习.exe
+﻿  数字问题.c
+D:\C语言\复习练习\复习练习\数字问题.c(278,9): fatal error C1083: 无法打开包括文件: “sub.h”: No such file or directory

@@ -36,5 +36,19 @@
     <ClCompile Include="三个数排序.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="数字问题.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="关机.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="练习.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\sub\sub\sub.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
