@@ -226,18 +226,65 @@
 //	return 0;
 //}
 
-#include<stdio.h>
-int main()
-{
-	int i = 0;
-	for (i = 1; i <= 9; i++)
-	{
-		int j = 0;
-		for (j = 1; j <= i; j++)
-		{
-			printf("%d*%d=%-2d ", i, j, i * j);
-		}
-		printf("\n");
-	}
-	return 0;
-}
+//#include<stdio.h>
+//int main()
+//{
+//	int i = 0;
+//	for (i = 1; i <= 9; i++)
+//	{
+//		int j = 0;
+//		for (j = 1; j <= i; j++)
+//		{
+//			printf("%d*%d=%-2d ", i, j, i * j);
+//		}
+//		printf("\n");
+//	}
+//	return 0;
+//}
+
+//#include<stdio.h>
+//int bitwise_sum(int n)
+//{
+//	if (n > 9)
+//	{
+//		return bitwise_sum(n / 10) + n % 10;
+//	}
+//	else
+//	{
+//		return n;
+//	}
+//}
+//
+//int main()
+//{
+//	int num = 1729;
+//	int sum = bitwise_sum(num);
+//	printf("%d\n", sum);
+//	return 0;
+//}
+
+//#include<stdio.h>
+//double pow(int n, int k)
+//{
+//	if (k == 0)
+//	{
+//		return 1.0;
+//	}
+//	else if (k > 0)
+//	{
+//		return n * pow(n, k - 1);
+//	}
+//	else
+//	{
+//		return 1.0 / (pow(n, -k));
+//	}
+//}
+//int main()
+//{
+//	int n = 0;
+//	int k = 0;
+//	scanf("%d %d", &n, &k);
+//	double ret = pow(n, k);
+//	printf("%lf\n", ret);
+//	return 0;
+//}
