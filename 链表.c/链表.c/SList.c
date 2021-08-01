@@ -141,7 +141,7 @@ bool SListEmpty(SLTNode* phead)
 	return phead == NULL ? true : false;
 }
 
-void SListFind(SLTNode* phead, SLTDataType x)
+SLTNode* SListFind(SLTNode* phead, SLTDataType x)
 {
 	SLTNode* cur = phead;
 	while (cur)
@@ -181,7 +181,7 @@ void SListInsert(SLTNode** pphead, SLTNode* pos, SLTDataType x)
 }
 
 //在pos后面插入
-void SListInsert(SLTNode* pos, SLTDataType x)
+void SListInsertAfter(SLTNode* pos, SLTDataType x)
 {
 	assert(pos);
 	SLTNode* newnode = BuySListNode(x);
@@ -210,4 +210,14 @@ void SListErase(SLTNode** pphead, SLTNode* pos)
 	}
 }
 
+void SListEraseAfter(SLTNode* pos)
+{
+	assert(pos);
+	assert(pos->next);
+	SLTNode* next = pos->next;//pos后面元素地址赋给新创建的指针
+	pos->next = next->next;//把下下个元素地址赋给pos里存储的地址
+	//相当于pos->next = pos->next->next
+	free(next);
+	next = NULL;
+}
 
