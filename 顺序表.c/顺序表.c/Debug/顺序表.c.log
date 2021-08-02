@@ -1,0 +1,7 @@
+﻿  SeqList.c
+D:\C语言\顺序表.c\顺序表.c\SeqList.c(92,2): warning C4018: “<=”: 有符号/无符号不匹配
+D:\C语言\顺序表.c\顺序表.c\SeqList.c(107,2): warning C4018: “<”: 有符号/无符号不匹配
+D:\C语言\顺序表.c\顺序表.c\SeqList.c(110,15): warning C4018: “<”: 有符号/无符号不匹配
+D:\C语言\顺序表.c\顺序表.c\SeqList.c(127,2): warning C4018: “<”: 有符号/无符号不匹配
+D:\C语言\顺序表.c\顺序表.c\SeqList.c(102): warning C4716: “SeqListInsert”: 必须返回一个值
+  顺序表.c.vcxproj -> D:\C语言\顺序表.c\Debug\顺序表.c.exe
