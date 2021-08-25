@@ -1,0 +1,7 @@
+﻿  Sqlist.c
+D:\C语言\顺序表plus\顺序表plus\Sqlist.c(45,14): warning C4133: “=”: 从“SLT *”到“SqDataType *”的类型不兼容
+D:\C语言\顺序表plus\顺序表plus\Sqlist.c(65,20): warning C4013: “SlistCheckCapacity”未定义；假设外部返回 int
+D:\C语言\顺序表plus\顺序表plus\Sqlist.c(88,2): warning C4018: “<=”: 有符号/无符号不匹配
+Sqlist.obj : error LNK2019: 无法解析的外部符号 _SlistCheckCapacity，函数 _SqlistPushBack 中引用了该符号
+MSVCRTD.lib(exe_main.obj) : error LNK2019: 无法解析的外部符号 _main，函数 "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ) 中引用了该符号
+D:\C语言\顺序表plus\Debug\顺序表plus.exe : fatal error LNK1120: 2 个无法解析的外部命令
