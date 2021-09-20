@@ -143,6 +143,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sort.c" />
+    <ClCompile Include="stack.c" />
+    <ClCompile Include="stack.h" />
     <ClCompile Include="text.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
